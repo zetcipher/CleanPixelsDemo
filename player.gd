@@ -57,4 +57,5 @@ func _physics_process(delta):
 
 func move():
 	move_and_slide()
+	$AnimatedSprite2D.global_position = self.global_position.snapped(Vector2.ONE)
 	emit_signal("moved", position)

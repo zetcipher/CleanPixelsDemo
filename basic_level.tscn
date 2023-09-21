@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxmdrim3mifht"]
+[gd_scene load_steps=7 format=3 uid="uid://cxmdrim3mifht"]
 
+[ext_resource type="Script" path="res://basic_level.gd" id="1_gqws6"]
 [ext_resource type="Texture2D" uid="uid://cvehfr0bdqadv" path="res://textures/sky.png" id="1_qe1e5"]
 [ext_resource type="Texture2D" uid="uid://d18t10in4w22o" path="res://textures/grass_tiles.png" id="2_k2rwl"]
 [ext_resource type="PackedScene" uid="uid://ba8wwpf07qxsi" path="res://player.tscn" id="3_vm8aa"]
@@ -500,11 +501,10 @@ terrain_set_0/terrain_0/color = Color(0, 1, 0, 1)
 sources/0 = SubResource("TileSetAtlasSource_oetg0")
 
 [node name="BasicLevel" type="Node2D"]
+script = ExtResource("1_gqws6")
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -1
-scale = Vector2(3, 3)
-transform = Transform2D(3, 0, 0, 3, 0, 0)
 
 [node name="BackgroundSprite" type="Sprite2D" parent="Background"]
 texture_repeat = 2
@@ -521,6 +521,6 @@ layer_0/tile_data = PackedInt32Array(1441791, 655360, 1, 1376255, 589824, 2, 131
 [node name="Player" parent="." instance=ExtResource("3_vm8aa")]
 position = Vector2(43, 256)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(43, 256)
 offset = Vector2(0, -8)
-zoom = Vector2(3, 3)
