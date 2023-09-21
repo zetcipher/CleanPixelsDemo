@@ -7,4 +7,5 @@ func _ready():
 
 
 func move_cam(pos: Vector2):
+	# Setting the camera's position to the player's position snapped to an integer value.
 	$Camera2D.position = pos.snapped(Vector2.ONE)

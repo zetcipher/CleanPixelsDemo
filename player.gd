@@ -51,11 +51,18 @@ func _physics_process(delta):
 		$AnimatedSprite2D.play("run")
 	else:
 		$AnimatedSprite2D.play("default")
-
+	
+	# Redirecting the move_and_slide() call to a new function, so we can emit the "moved" signal.
+	# Doing this in another function may not be necessary for a super simple character controller like this one.
+	# However, with more complex character controllers, and especially ones that utilize state machines,
+	# this ensures you're not duplicating code, and then potentially needing to change it in multiple places.
 	move()
 
 
 func move():
 	move_and_slide()
+	# We set the global_position of the sprite, rather than the position,
+	# because position is relative to the parent node, and global_position is not.
 	$AnimatedSprite2D.global_position = self.global_position.snapped(Vector2.ONE)
+	# Emitting the "moved" signal, with the player's position as the provided argument.
 	emit_signal("moved", position)
