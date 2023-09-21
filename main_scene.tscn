@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cwmsv8quh4tt5"]
+[gd_scene load_steps=5 format=3 uid="uid://cwmsv8quh4tt5"]
 
 [ext_resource type="PackedScene" uid="uid://cxmdrim3mifht" path="res://basic_level.tscn" id="1_8xxjs"]
 [ext_resource type="Shader" path="res://adjustable_interpolation.gdshader" id="1_b0vk1"]
+[ext_resource type="Script" path="res://main_scene.gd" id="2_lh3vb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r781e"]
 shader = ExtResource("1_b0vk1")
@@ -16,6 +17,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("2_lh3vb")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 use_parent_material = true
