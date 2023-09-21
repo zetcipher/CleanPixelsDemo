@@ -15,10 +15,14 @@ run/main_scene="res://basic_level.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Global="*res://global.gd"
+
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
+window/size/viewport_width=416
+window/size/viewport_height=240
 
 [rendering]
 
