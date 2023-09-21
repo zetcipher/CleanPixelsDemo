@@ -12,6 +12,8 @@ const SPEED := 110.0
 const JUMP_VELOCITY := -300.0
 const COYOTE_TIME := 5.0 / 60.0 # 5 frames 
 
+signal moved(pos: Vector2)
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity : float = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -50,4 +52,9 @@ func _physics_process(delta):
 	else:
 		$AnimatedSprite2D.play("default")
 
+	move()
+
+
+func move():
 	move_and_slide()
+	emit_signal("moved", position)
