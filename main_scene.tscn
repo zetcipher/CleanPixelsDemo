@@ -1,8 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://cwmsv8quh4tt5"]
+[gd_scene load_steps=4 format=3 uid="uid://cwmsv8quh4tt5"]
 
 [ext_resource type="PackedScene" uid="uid://cxmdrim3mifht" path="res://basic_level.tscn" id="1_8xxjs"]
+[ext_resource type="Shader" path="res://adjustable_interpolation.gdshader" id="1_b0vk1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r781e"]
+shader = ExtResource("1_b0vk1")
+shader_parameter/linear_interp = false
+shader_parameter/interp_sharpness = Vector2i(1, 1)
 
 [node name="MainScene" type="Control"]
+material = SubResource("ShaderMaterial_r781e")
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,6 +18,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+use_parent_material = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,7 +27,9 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
 audio_listener_enable_2d = true
 size = Vector2i(416, 240)
+render_target_update_mode = 4
 
 [node name="BasicLevel" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_8xxjs")]
